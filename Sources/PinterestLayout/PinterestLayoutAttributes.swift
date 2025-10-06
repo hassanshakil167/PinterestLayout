@@ -12,6 +12,7 @@ import UIKit
 /**
  CollectionViewLayoutAttributes.
  */
+@preconcurrency
 public class PinterestLayoutAttributes: UICollectionViewLayoutAttributes {
     /**
      Image height to be set to contstraint in collection view cell.
