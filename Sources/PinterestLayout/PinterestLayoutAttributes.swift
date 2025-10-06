@@ -12,12 +12,11 @@ import UIKit
 /**
  CollectionViewLayoutAttributes.
  */
-@preconcurrency
 public class PinterestLayoutAttributes: UICollectionViewLayoutAttributes {
     /**
      Image height to be set to contstraint in collection view cell.
      */
-    public var imageHeight: CGFloat = 0
+    @preconcurrency @MainActor public var imageHeight: CGFloat = 0
     
     override public func copy(with zone: NSZone? = nil) -> Any {
         let copy = super.copy(with: zone) as! PinterestLayoutAttributes
@@ -25,7 +24,6 @@ public class PinterestLayoutAttributes: UICollectionViewLayoutAttributes {
         return copy
     }
     
-    @MainActor
     override public func isEqual(_ object: Any?) -> Bool {
         if let attributes = object as? PinterestLayoutAttributes {
             if attributes.imageHeight == imageHeight {
