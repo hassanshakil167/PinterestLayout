@@ -24,6 +24,7 @@ public class PinterestLayoutAttributes: UICollectionViewLayoutAttributes {
         return copy
     }
     
+    @MainActor
     override public func isEqual(_ object: Any?) -> Bool {
         if let attributes = object as? PinterestLayoutAttributes {
             if attributes.imageHeight == imageHeight {

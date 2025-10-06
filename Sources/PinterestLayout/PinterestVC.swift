@@ -23,7 +23,7 @@ public struct PinterestItem {
 /**
  PinterestVC.
  */
-open class PinterestVC: UICollectionViewController, PinterestLayoutDelegate {
+open class PinterestVC: UICollectionViewController, @preconcurrency PinterestLayoutDelegate {
     
     private var _items: [PinterestItem]?
     open var items: [PinterestItem] {
@@ -82,6 +82,7 @@ open class PinterestVC: UICollectionViewController, PinterestLayoutDelegate {
         return items.count
     }
     
+    @MainActor
     public func collectionView(collectionView: UICollectionView,
                         heightForImageAtIndexPath indexPath: IndexPath,
                         withWidth: CGFloat) -> CGFloat {
@@ -90,6 +91,7 @@ open class PinterestVC: UICollectionViewController, PinterestLayoutDelegate {
         return image.height(forWidth: withWidth)
     }
     
+    @MainActor
     public func collectionView(collectionView: UICollectionView,
                         heightForAnnotationAtIndexPath indexPath: IndexPath,
                         withWidth: CGFloat) -> CGFloat {
